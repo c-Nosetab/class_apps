@@ -1,0 +1,6 @@
+<%= form_tag '/form_response', method: :post do %>
+  <div>
+    Guess a number betweeen 1-100 <%= text_field_tag :guess %>
+  </div>
+  <%= submit_tag("Submit Guess") %>
+<% end %>

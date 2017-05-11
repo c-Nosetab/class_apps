@@ -1,0 +1,25 @@
+
+
+<h2> <%= @recipe.title %> </h2>
+<h5>Last Updated: <%= @recipe.friendly_updated_at %></h5>
+<h4> <%= @recipe.chef %> </h4>
+<h4> <%= @recipe.friendly_prep_time %>
+
+<h2>Ingredients</h2>
+<ul>
+  <% @recipe.ingredient_list.each do |ingredient| %>
+    <h4><li><%= ingredient %></li></h4>
+  <% end %>
+</ul>
+<h2>Directions:</h2>
+<ol>
+  <% @recipe.direction_list.each do |direction|%>
+    <h4><li><%= direction %></li></h4>
+
+  <% end %>
+</ol>
+
+<h5><a href="/recipes/<%= @recipe.id %>/edit">Edit Recipe</a></h5>
+<hr>
+<%= link_to "Delete Recipe", "/recipes/#{@recipe.id}", method: :delete %>
+

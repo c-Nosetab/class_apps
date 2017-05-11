@@ -1,0 +1,23 @@
+<h1>Enter your contact information:</h1>
+
+<%= form_tag '/contact', method: :post do %>
+  <div>
+    First Name: <input type="text" name="first_name">
+  </div>
+  <div>
+    Middle Name: <input type="text" name="middle_name">
+  </div>
+  <div>
+    Last Name: <input type="text" name="last_name">
+  </div>
+  <div>
+    Email: <input type="text" name="email">
+  </div>
+  <div>
+    Phone: <input type="text" name="phone_number">
+  </div>
+  <div>
+    Bio: <input type="text-field" name="bio">
+  </div>
+  <%= submit_tag("Submit") %>
+<% end %>

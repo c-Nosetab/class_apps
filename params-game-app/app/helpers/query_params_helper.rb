@@ -1,0 +1,2 @@
+module QueryParamsHelper
+end

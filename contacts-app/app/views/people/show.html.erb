@@ -1,0 +1,9 @@
+<h1>Current Contact</h1>
+
+<h3>Name: <%= @contact.first_name %> <%= @contact.last_name %></a></h3>
+<h3>   Email: <%= @contact.email %> </h3>
+<h3>Phone: <%= @contact.phone_number %></h3>
+<hr>
+<a href="/contact/<%= @contact.id %>/edit">Edit Contact</a>
+<br>
+<%= link_to "Delete", "/contact/#{@contact.id}", method: :delete %>
