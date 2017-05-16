@@ -1,0 +1,6 @@
+<h2><%= @house.bedrooms %>bd/<%= @house.bathrooms %>ba, <%= @house.square_feet %> sqft Apartment for sale! <strong><%= number_to_currency(@house.price) %></strong></a></h2>
+  <h3>Available <%= @house.availability %></h3>
+
+<%= link_to "/houses/#{@house.id}/edit", method: :get do %>
+  <button type="button" class="btn btn-primary">Edit House Info</button>
+<% end %>

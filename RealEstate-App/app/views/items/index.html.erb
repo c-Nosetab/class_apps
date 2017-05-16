@@ -1,0 +1,8 @@
+<div class="content">
+  <% @houses.each do |house| %>
+    <div class="col-xs-4 thumbnail items" style="border: 5px solid black">
+      <h2><a href="/houses/<%= house.id %>"><%= house.bedrooms %>bd/<%= house.bathrooms %>ba, <%= house.square_feet %> sqft Apartment for sale!</a> <strong><%= number_to_currency(house.price) %></strong></h2>
+        <h3>Available <%= house.availability %></h3>
+    </div>
+  <% end %>
+</div>

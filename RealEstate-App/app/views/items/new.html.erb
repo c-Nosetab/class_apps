@@ -1,0 +1,29 @@
+<%= form_tag '/houses', method: :post do %>
+  <h2>
+  <div>
+    Address <input type="text" name="description">
+  </div>
+  <div>
+    Year Built: <input type="text" name="year_built">
+  </div>
+  <div>
+    Square Feet: <input type="text" name="square_feet">
+  </div>
+  <div>
+    Bedrooms: <input type="text" name="bedrooms">
+  </div>
+  <div>
+    Bathrooms: <input type="text" name="bathrooms">
+  </div>
+  <div>
+    Floors: <input type="text" name="floors">
+  </div>
+  <div>
+    Available: <input type="text" name="availability">
+  </div>
+  <div>
+    Price: <input type="text" name="bedrooms">
+  </div>
+  <input type="submit" value="Add House">
+  </h2>
+<% end %>

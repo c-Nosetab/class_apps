@@ -1,0 +1,29 @@
+<%= form_tag "/houses/#{@house.id}", method: :patch do %>
+  <h2>
+  <div>
+    Address <input type="text" name="description" value="<%= @house.description %>">
+  </div>
+  <div>
+    Year Built: <input type="text" name="year_built" value="<%= @house.year_built %>">
+  </div>
+  <div>
+    Square Feet: <input type="text" name="square_feet" value="<%= @house.square_feet %>">
+  </div>
+  <div>
+    Bedrooms: <input type="text" name="bedrooms" value="<%= @house.bedrooms %>">
+  </div>
+  <div>
+    Bathrooms: <input type="text" name="bathrooms" value="<%= @house.bathrooms %>">
+  </div>
+  <div>
+    Floors: <input type="text" name="floors" value="<%= @house.floors %>">
+  </div>
+  <div>
+    Available: <input type="text" name="availability" value="<%= @house.availability %>">
+  </div>
+  <div>
+    Price: <input type="text" name="price" value="<%= @house.price %>">
+  </div>
+  <input type="submit" value="Update House">
+  </h2>
+<% end %>
