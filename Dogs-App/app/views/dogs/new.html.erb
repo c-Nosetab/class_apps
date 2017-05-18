@@ -1,0 +1,17 @@
+<%= form_tag '/dogs', method: :post do %>
+  <h2>
+    <div>
+      Name: <input type="text" name="name">
+    </div>
+    <div>
+      Age: <input type="text" name="age">
+    </div>
+    <div>
+      Species: <input type="text" name="species">
+    </div>
+    <div>
+      Image Url: <input type="text" name="image">
+    </div>
+  </h2>
+  <input type="submit" value="Add Dog">
+<% end %>

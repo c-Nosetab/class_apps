@@ -19,7 +19,6 @@
   <% end %>
 </ol>
 
-<h5><a href="/recipes/<%= @recipe.id %>/edit">Edit Recipe</a></h5>
-<hr>
-<%= link_to "Delete Recipe", "/recipes/#{@recipe.id}", method: :delete %>
+<%= link_to "Edit Recipe", "/recipes/#{ @recipe.id }/edit", class: "btn btn-primary" %>
+<%= link_to "Delete Recipe", "/recipes/#{@recipe.id}", method: :delete, class: "btn btn-danger" %>
 
