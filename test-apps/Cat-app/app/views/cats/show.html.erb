@@ -1,0 +1,15 @@
+
+<div class="content">
+  <div class="cats thumbnail">
+    <h2><%= @cat.name %> - <%= @cat.age %>  --- <%= number_to_currency(@cat.price) %></h2>
+    <img src="<%= @cat.image_check %>" alt="Cat">
+    <p><%= @cat.description %></p>
+  </div>
+  <div>
+<h2><a href="/cats/<%= @cat.id %>/edit"><button class="btn btn-primary">Edit Cat</button></a></h2>
+  <%= link_to "/cats/#{@cat.id}", method: :delete do %>
+    <button class="btn btn-danger">Delete Cat</button>
+  <% end %>
+
+  </div>
+</div>

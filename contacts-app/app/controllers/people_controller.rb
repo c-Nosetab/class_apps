@@ -2,6 +2,20 @@ class PeopleController < ApplicationController
 
   def index
     @contact = Person.all
+
+    if current_user
+      user = User.find(current_user.id)
+      @contact = user.people
+    else
+      @contact = "Welcome"
+    end
+
+    category = params[:category]
+
+    if category
+      @contact = Group.find_by(name: category).people.sort_by{ |per| per.last_name}
+    end
+
   end
 
   def new
@@ -14,7 +28,8 @@ class PeopleController < ApplicationController
                         last_name: params[:last_name],
                         email: params[:email],
                         phone_number: params[:phone_number],
-                        bio: params[:bio]
+                        bio: params[:bio],
+                        user_id: current_user.id
                         )
     contact.save
   end
