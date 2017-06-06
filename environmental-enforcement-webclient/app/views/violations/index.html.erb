@@ -1,0 +1,15 @@
+<h1>Environmental Violations</h1>
+
+<div class="content">
+  <% @violations.each do |violation| %>
+    <h1 style="color: red;"><%= violation["case_status"] %></h1>
+    <h5>Coodinates:
+
+      <%= violation["address"["type"]] %>
+
+    </h5>
+    <h2><%= violation["case_type"] %> - <%= violation["ticket_no"] %></h2>
+    <h3><%= violation["code_violation"] %></h3>
+    <hr>
+  <% end %>
+</div>
