@@ -1,0 +1,11 @@
+<h1>create new thing</h1>
+
+<%= form_tag "/foods", method: :post do %>
+  <%= label_tag "Food Name" %>
+  <%= text_field_tag :name %>
+  <div>
+    <%= label_tag "Spice" %>
+    <%= text_field_tag :spice %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>

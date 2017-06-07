@@ -1,0 +1,9 @@
+<%= link_to "New", "/foods/new" %>
+
+<h1>Food Things for Football Head!!!!</h1>
+
+<% @foods.each do |food| %>
+  <h2><a href="/foods/<%= food["id"] %>"><%= food["name"] %></a></h2>
+  <h4><%= food["spice"] %></h4>
+  <hr>
+<% end %>
