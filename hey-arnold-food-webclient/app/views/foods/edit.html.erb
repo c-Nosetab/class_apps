@@ -1,11 +1,14 @@
 <%= link_to "Home", "/" %>
 
-<%= form_tag "/foods/#{@food["id"]}", method: :patch do %>
+<br>
+<br>
+
+<%= form_tag "/foods/#{@food.id}", method: :patch do %>
   <div>
-    <input type="text" name="name" value="<%= @food["name"] %>">
+    Name: <input type="text" name="name" value="<%= @food.name %>">
   </div>
   <div>
-    <input type="text" name="spice" value="<%= @food["spice"] %>">
+    Spice: <input type="text" name="spice" value="<%= @food.spice %>">
   </div>
   <%= submit_tag "Submit" %>
 

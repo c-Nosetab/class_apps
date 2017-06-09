@@ -1,7 +1,8 @@
 <%= link_to "Home", "/" %>
 
+<%= @food.id %>
+<h2><%= @food.name %></h2>
+<h4><%= @food.spice %></h4>
 
-<h2><%= @food["name"] %></h2>
-<h4><%= @food["spice"] %></h4>
-
-<a href="/foods/<%= params[:id] %>/edit">Edit</a>
+<a href="/foods/<%= @food.id %>/edit">Edit</a>
+<%= link_to "Delete", "/foods/#{@food.id}", method: :delete %>

@@ -1,6 +1,8 @@
+<%= link_to 'Home', "/employees" %>
+
 <h1>New Employee</h1>
 
-<%= form_tag "/employees", method: :post %>
+<%= form_tag "/employees", method: :post do %>
   <div>
     <%= label_tag "First Name" %>
     <%= text_field_tag :first_name %>

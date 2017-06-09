@@ -1,14 +1,15 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Unirest.get("localhost:3000/api/v2/thing.json").body
+    @foods = Food.all
+
   end
 
   def new
   end
 
   def create
-    response = Unirest.post("localhost:3000/api/v1/thing?name=#{params[:name]}&spice=#{params[:spice]}",
+    response = Unirest.post("#{ENV["API_HOST"]}/api/v1/thing?name=#{params[:name]}&spice=#{params[:spice]}",
                             headers: {"Accept" => "application/json"}
                             )
 
@@ -16,21 +17,28 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Unirest.get("localhost:3000/api/v2/thing/#{params[:id]}.json").body
+    @food = Food.find(params[:id])
+
+    p "qqqqqqqqqqqqqqqq"
+    p @food
   end
 
   def edit
-    @food = Unirest.get("localhost:3000/api/v2/thing/#{params[:id]}.json").body
-
+    @food = Food.find(params[:id])
   end
 
   def update
-    food = Unirest.get("localhost:3000/api/v2/thing/#{params[:id]}.json").body
-    @food
+    food = Food.new(Unirest.get("#{ENV["API_HOST"]}/api/v2/thing/#{params[:id]}.json").body)
+
+
+    redirect_to '/foods'
   end
 
   def destroy
+    food = Food.find(params[:id])
+    food.delete
 
+    redirect_to '/'
   end
 
 
