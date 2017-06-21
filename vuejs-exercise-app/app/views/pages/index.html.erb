@@ -1,0 +1,21 @@
+<div id="tasks">
+  <h1>List of things:</h1>
+  <ul>
+    <li v-for="task in todos" v-on:click="markComplete(task), numberIncomplete">
+      <span v-if="task.completed" class="strike">{{ task.task}}</span>
+      <span v-else>{{task.task}}</span>
+    </li>
+  </ul>
+
+  <br>
+  <h3>Number of Items = {{completeTasks}}</h3>
+  <br>
+  <input type="text" v-model="newTodo">
+  <button v-on:click="addTodo()">Add Todo</button>
+  <br>
+  <br>
+  <button v-on:click="deleteCompleted()">Delete Completed Tasks</button>
+</div>
+
+
+

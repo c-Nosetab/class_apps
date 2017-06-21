@@ -1,0 +1,20 @@
+<div id='app'>
+  <div>
+    <h2>Reviews:</h2>
+
+    <div v-for="review in reviews" v-if="isPositive(review.text)">
+      <h3>Rating: {{review.rating}} -- {{review.text}}</h3>
+      <ul>
+        <li>Reviewed by {{review.reviewer}}</li>
+      </ul>
+      <br>
+    </div>
+
+  </div>
+  <div>
+    Text: <input type="text" v-model="newReviewText"> <br>
+    Rating: <input type="text" v-model="newReviewRating"> <br>
+    Reviewer: <input type="text" v-model="newReviewReviewer"><br>
+    <button v-on:click="addReview()">Add Review</button>
+  </div>
+</div>

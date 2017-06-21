@@ -5,12 +5,17 @@ class Api::V2::ThingsController < ApplicationController
   end
 
   def create
-    @thing = Quote.create(
+    @thing = Quote.new(
                           name: params[:name],
                           quote: params[:spice]
                           )
 
-    render :show
+    if @thing.save
+      render :show
+    else
+      render json: {errors: @thing.errors.full_messages}, status: 422
+    end
+
   end
 
   def show
