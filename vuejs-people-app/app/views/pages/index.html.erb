@@ -9,15 +9,44 @@
         <button v-on:click="addPerson()">Add Person</button></h3>
   </div>
 
-  <div v-for="person in people">
+  <div>
+    <datalist id="names">
+      <option v-for="person in people">{{person.name}}</option>
+    </datalist>
+    <h3>Search by Name: <input type="text" v-model="nameFilter" list="names"></h3>
+  </div>
+
+  <div>
+    <button v-on:click="setSortAttribute('name')">Sort by Name</button>
+    <button v-on:click="setSortAttribute('bio')">Sort by Bio</button>
+  </div>
+  <br>
+
+  <table>
+    <tr>
+      <th v-on:click="setSortAttribute('name')">Name</th>
+      <th v-on:click="setSortAttribute('bio')">Bio</th>
+    </tr>
+    <tr v-for="person in modifiedPeople" v-if="isValidPerson(person)">
+      <td>{{person.name}}</td>
+      <td>{{person.bio}}</td>
+    </tr>
+  </table>
+
+
+    </tbody>
+  </table>
+  <h4>Total number of people: {{people.length}}</h4>
+
+  <transition-group name="slide-right">
+    <div v-for="person in modifiedPeople" v-if="isValidPerson(person)" v-bind:key="person.id">
       <h2 v-on:click="toggleBio(person)">{{person.name}}</h2>
       <h3 v-if="person.bioVisible">{{person.bio}}
         <button v-on:click="deletePerson(person)">Delete</button>
 
       </h3>
-  </div>
+    </div>
+  </transition-group>
 
-
-  <h4>Total number of people: {{people.length}}</h4>
 
 </div>

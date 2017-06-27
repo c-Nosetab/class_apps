@@ -5,11 +5,14 @@
   Name: <input type="text" v-model="newName"> Spice: <input type="text" v-model="newSpice">
   <button v-on:click="addFood()">Add Food</button>
 
+  <h3>Search by Food: <input type="text" v-model="nameFilter"></h3>
+  <hr>
+
   <ul>
     <li v-for="error in errors">{{error}}</li>
   </ul>
 
-  <div v-for="thing in things">
+  <div v-for="thing in things" v-if="isValidThing(thing)">
     <h3 v-on:click="showCurrentInfo(thing)">{{thing.id}} - {{ thing.name }} - {{thing.spice}}</h3>
     <div v-if="thing.infoVisible">
       <input type="text" v-model="updateName">

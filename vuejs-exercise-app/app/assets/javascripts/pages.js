@@ -71,3 +71,30 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
   });
 });
+
+https://jsfiddle.net/6sb01z2n/1/
+
+
+
+
+data: {
+  tasks: [
+          {
+            task: "Clean the house",
+            completed: false
+          },
+
+          {
+            task: 'Take out the trash',
+            completed: false
+          },
+
+          {
+            task: 'Feed the cat',
+            completed: false
+          }
+
+        ],
+  newTask: '',
+  incompleteTasks: 0
+},

@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             newSpice: '',
             updateName: "",
             updateBio: '',
-            errors: []
+            errors: [],
+            nameFilter: ''
 
     },
 
@@ -19,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
 
     methods: {
+
+      isValidThing: function(inputThing) {
+        return inputThing.name.indexOf(this.nameFilter) !== -1;
+      },
+
       addFood: function() {
         this.errors = []
         var params = {

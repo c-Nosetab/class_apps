@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
       people: [],
       newPersonName: '',
       newPersonBio: '',
-      errors: []
+      errors: [],
+      nameFilter: '',
+      sortAttribute: 'name',
+      sortAscending: true
     },
 
     mounted: function() {
@@ -16,9 +19,34 @@ document.addEventListener('DOMContentLoaded', function(event) {
       }.bind(this));
     },
 
+    computed: {
+      modifiedPeople: function() {
+        return this.people.sort(function(person1, person2) {
+          if (this.sortAscending) {
+            return person1[this.sortAttribute].localeCompare(person2[this.sortAttribute]);
+          } else {
+            return person2[this.sortAttribute].localeCompare(person1[this.sortAttribute]);
+          }
+        }.bind(this));
+      }
+    },
+
     methods: {
+      isValidPerson: function(inputPerson) {
+        return inputPerson.name.indexOf(this.nameFilter) !== -1;
+      },
+
       toggleBio: function(person) {
         person.bioVisible = !person.bioVisible;
+      },
+
+      setSortAttribute: function(inputAttribute) {
+        if (inputAttribute !== this.sortAttribute) {
+          this.sortAscending = true;
+        } else {
+          this.sortAscending = !this.sortAscending;
+        };
+        this.sortAttribute = inputAttribute;
       },
 
 
